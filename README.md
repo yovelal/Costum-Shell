@@ -1,8 +1,9 @@
 # Costum-Shell
-##Linux "shell" program in c
+## Linux "shell" program in c
 
-###Description
+### Description
     A shell program that supports the following command:
+    '''
     - pwd
     - cd
     - nano
@@ -16,11 +17,12 @@
     - ls or ls + flags
     - tree
     - exit
+    '''
 
-###How to run the program
+### How to run the program
     Make sure the installations are done:
     sudo apt-get install tree
     sudo apt-get install libreadline-dev
 
     To run, enter the following command :
-    gcc main.c main -lreadline;./main 
+    *gcc main.c main -lreadline;./main* 
