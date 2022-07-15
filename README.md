@@ -25,4 +25,4 @@
     sudo apt-get install libreadline-dev
 
     To run, enter the following command :
-    *gcc main.c main -lreadline;./main* 
+    _gcc main.c main -lreadline;./main_ 
