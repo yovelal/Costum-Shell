@@ -1,7 +1,7 @@
 # Costum-Shell
-Linux "shell" program in c
+##Linux "shell" program in c
 
-//////Description//////
+###Description
     A shell program that supports the following command:
     - pwd
     - cd
@@ -17,7 +17,7 @@ Linux "shell" program in c
     - tree
     - exit
 
-//////How to run the program//////
+###How to run the program
     Make sure the installations are done:
     sudo apt-get install tree
     sudo apt-get install libreadline-dev
