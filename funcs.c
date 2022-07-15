@@ -1,3 +1,7 @@
+//Yovel ALoni 319122842
+//Daniel Dahan 208906909
+
+
 #include "funcs.h"
 #define GRN "\e[0;32m"
 #define BGRN "\e[1;32m"
@@ -78,12 +82,12 @@ parseInfo* parse(char* line){
 
 
 void executeCommand(parseInfo * info){
-    //if the command is empty - exit
 
-
+    //if pipe 
     if(info->pipe_index!=-1){
         execute_pipe(info->pipe_index,info->command[0]);
     }
+    //if the command is empty - exit
     else if(strcmp(info->command[0],"")==0)
         exit(1);
 
@@ -92,10 +96,20 @@ void executeCommand(parseInfo * info){
     }
 
     //genral case - use execvp on the command:
-    else if(execvp(info->command[0],info->command)<0){
-        printf("faild to execute the '%s' command\n",info->command[0]);
-        exit(1);
+    else if(strcmp(info->command[0],"pwd")==0 || strcmp(info->command[0],"nano")==0 || strcmp(info->command[0],"cat")==0 || strcmp(info->command[0],"wc")==0
+            || strcmp(info->command[0],"cp")==0|| strcmp(info->command[0],"clear")==0 || strcmp(info->command[0],"grep")==0 || strcmp(info->command[0],"wget")==0 
+            || strcmp(info->command[0],"ls")==0 || strcmp(info->command[0],"tree")==0 )
+    {
+        if(execvp(info->command[0],info->command)<0){
+            printf("faild to execute the '%s' command\n",info->command[0]);
+
+        }
     }
+    else {
+        printf("%s is not supported! \n",info->command[0]);
+    }
+
+    exit(1);
 
 }
 
@@ -160,6 +174,7 @@ void execute_pipe(int pipe_index , char* line){
         dup2(p[WRITE],WRITE);
         executeCommand(info1);
 
+
        
     }
     else
@@ -170,7 +185,6 @@ void execute_pipe(int pipe_index , char* line){
         if (strcmp(info2->command[0],"exit")==0 || strcmp(info2->command[0],"cd")==0)
             exit(1);
         executeCommand(info2);
-
 
     }
 
