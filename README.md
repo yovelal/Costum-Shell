@@ -1,9 +1,6 @@
 # Costum-Shell
 Linux "shell" program in c
 
-//////The author contact information//////
-    Yovel Aloni 
-
 //////Description//////
     A shell program that supports the following command:
     - pwd
