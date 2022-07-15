@@ -1,5 +1,3 @@
-//Yovel ALoni 319122842
-//Daniel Dahan 208906909
 
 
 #include "funcs.h"
